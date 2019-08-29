@@ -1,0 +1,20 @@
+// suppress content in second column (body)
+var contentEl = document.getElementsByTagName('td')[3];
+contentEl.innerHTML = "";
+
+// suppress deleted email from emails list in first column
+var emailId = "<%= @id %>";
+var emailIds = document.getElementsByClassName("email-id");
+var emailLines = document.getElementsByTagName('tr');
+var l = emailIds.length;
+
+for (let count = 0; count <= l-1; count++){
+  if (emailIds[count].innerHTML === emailId){
+    emailLines[count].parentNode.removeChild(emailLines[count]);
+    // if deleted email was first email on emails list, add column span = O on new first email of emails list
+    if (count === 1){
+      emailLines[count].insertAdjacentHTML("beforeend", "<%= j render 'destroy' %>");
+    }
+  break;
+  }
+}

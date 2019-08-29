@@ -1,0 +1,12 @@
+<div class="container">
+
+  <h4 class="my-3"> <%= email.object %> </h4>
+
+  <p style="word-break: break-all;">  <%= email.body %> </p>
+
+  <div class="d-flex flex-row justify-content-center my-5">
+    <%= button_to "Marquer comme non lu", email_path(email.id), :class => "btn btn-info mx-2", :method => :delete, remote: true %>
+    <%= button_to "Supprimer", email_path(email.id), :class => "btn btn-warning mx-2", :method => :delete, remote: true, data: { confirm: 'Voulez-vous effacer définitivement ce message?' } %>
+  </div>
+
+</div>

@@ -1,0 +1,9 @@
+var bodyEl = document.getElementsByTagName("tbody")[0];
+
+var rowspanEl = document.getElementsByTagName("td")[3];
+
+// suppress column span on current first line
+rowspanEl.parentNode.removeChild(rowspanEl);
+
+// insert new firt line with new email
+bodyEl.insertAdjacentHTML("afterbegin", "<%= j render 'insert_email', email: @email %>");
