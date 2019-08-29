@@ -1,0 +1,11 @@
+var catTitle = document.getElementsByClassName("category-title");
+var taskCatTitle = "<%= @category.title %>";
+var cardCat = document.getElementsByClassName("card");
+var l = catTitle.length;
+
+for (let count = 0; count <= l-1; count++){
+  if (catTitle[count].innerHTML === taskCatTitle){
+    cardCat[count].childNodes[1].insertAdjacentHTML("beforeend", "<%= j render '_task_display', task: @task %>");
+    break;
+  }
+}

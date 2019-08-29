@@ -1,0 +1,12 @@
+var taskLines = document.getElementsByClassName("task-display");
+var taskIds = document.getElementsByClassName("task-id");
+var destroyTaskId = "<%= @task.id %>".trim();
+
+var l = taskLines.length;
+
+for (let count = 0; count <= l-1; count++){
+  if (taskIds[count].innerHTML.trim() === destroyTaskId) {
+    taskLines[count].parentNode.removeChild(taskLines[count]);
+    break;
+  }
+}
