@@ -27,6 +27,7 @@ charset = Array('A'..'Z') + Array('a'..'z')
 15.times do
   Email.create(
     object: Faker::Book.title,
-    body: Array.new(200) { charset.sample }.join
+    body: Array.new(200) { charset.sample }.join,
+    read:false
   )
 end

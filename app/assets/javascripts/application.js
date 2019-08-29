@@ -14,3 +14,16 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+console.log("je suis le js de index, je me charge à chaque page");
+
+// each time emails#index in loaded, email with read = true are set to bold
+var emailReads = document.getElementsByClassName("email-read");
+var l = emailReads.length;
+
+for (let count = 0; count <= l-1; count++){
+  if (emailReads[count].innerHTML === false){
+    emailReads[count].style.fontWeight = "bold";
+    console.log("bold");
+  }
+}

@@ -1,5 +1,6 @@
 <tr>
   <td class="email-id" style="display:none"><%= email.id %></td>
+  <td class="email-read" style="display:none"><%= email.read %></td>
   <td onmouseover="this.style.background='#e5e3e3'"; onmouseout="this.style.background=''"> <%= link_to "#{email.object}", email_path(email.id), :method => :get, remote: true %> </td>
   <td><%= email.created_at.strftime("%Y-%m-%d-%H:%M") %></td>
   <td rowspan="0"></td>

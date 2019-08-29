@@ -25,10 +25,34 @@ class EmailsController < ApplicationController
     end
   end
 
+  # ***********************
+
+  def update
+    @email = Email.find_by(id:params[:id])
+
+    if params[:email_read] == true
+      @email.read = true
+    else params[:email_read] == false
+      @email.read = false
+    end
+
+    if @email.update
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js { }
+      end
+    else
+      flash.now[:error] = @email.errors.full_messages.to_sentence
+      render :root_path
+    end
+
+  end
+
 # ***********************
 
   def show
     @email = Email.find_by(id:params[:id])
+    @email.read = true
 
     respond_to do |format|
       format.html { redirect_to root_path }

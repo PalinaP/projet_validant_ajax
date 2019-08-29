@@ -4,8 +4,15 @@
 
   <p style="word-break: break-all;">  <%= email.body %> </p>
 
+  <p class="my-5">  <%= email.read %> </p>
+
   <div class="d-flex flex-row justify-content-center my-5">
-    <%= button_to "Marquer comme non lu", email_path(email.id), :class => "btn btn-info mx-2", :method => :delete, remote: true %>
+    <% if email.read == true %>
+      <%= button_to "Marquer comme non lu", email_path(email.id), :class => "btn btn-info mx-2", :method => :put, remote: true,  params: { email_read: :false } %>
+    <% else %>
+      <%= button_to "Marquer comme lu", email_path(email.id), :class => "btn btn-info mx-2", :method => :put, remote: true, params: { email_read: :true } %>
+    <% end %>
+
     <%= button_to "Supprimer", email_path(email.id), :class => "btn btn-warning mx-2", :method => :delete, remote: true, data: { confirm: 'Voulez-vous effacer définitivement ce message?' } %>
   </div>
 
