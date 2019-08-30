@@ -11,7 +11,17 @@ Things you may want to cover:
 
 https://projet-validant-ajax.herokuapp.com/
 
-* Projet : Gmail-like en AJAX 
+* Pour lancer l'application en local, ouvrir le dossier dans le CL et tapper:
+
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+$ rails s
+
+ouvrir localhost:3000 dans le browser.
+
+
+* Projet : Gmail-like en AJAX
 
 1. Introduction
 
